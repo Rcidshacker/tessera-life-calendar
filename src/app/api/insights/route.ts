@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
 // Initialize OpenRouter client
-const openrouter = new OpenAI({
+const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
   apiKey: process.env.OPENROUTER_API_KEY,
   defaultHeaders: {
     "HTTP-Referer": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-    "X-Title": "Life in Dots 2.0",
+    "X-Title": "Tessera",
   }
 });
 
@@ -68,7 +68,7 @@ Based on this data, provide a thoughtful analysis in JSON format with these exac
 Be personal, insightful, and constructive. Focus on their unique story.`;
 
     // Call OpenRouter API
-    const completion = await openrouter.chat.completions.create({
+    const completion = await openai.chat.completions.create({
       model: "meta-llama/llama-3.3-70b-instruct:free", // Free tier, 70B parameters
       messages: [
         {
