@@ -1,0 +1,3 @@
+src/components/settings-panel.tsx(149,36): error TS2322: Type '"dark" | "light" | "system"' is not assignable to type '"dark" | "light" | undefined'.
+  Type '"system"' is not assignable to type '"dark" | "light" | undefined'.
+src/components/world-events-timeline.tsx(14,10): error TS2305: Module '"@supabase/auth-helpers-nextjs"' has no exported member 'createClientComponentClient'.

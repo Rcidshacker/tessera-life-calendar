@@ -1,0 +1,2 @@
+src/components/settings-panel.tsx(149,36): error TS2322: Type '"dark" | "light" | "system"' is not assignable to type '"dark" | "light" | undefined'.
+  Type '"system"' is not assignable to type '"dark" | "light" | undefined'.

@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model UserProfile {
+  id             String   @id @db.Uuid
+  name           String?
+  birthdate      DateTime? @db.Date
+  lifeExpectancy Int?     @default(80) @map("life_expectancy")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("user_profiles")
+}
+
+model UserSettings {
+  userId               String   @id @map("user_id") @db.Uuid
+  theme                String?  @default("light")
+  notificationsEnabled Boolean? @default(true) @map("notifications_enabled")
+  updatedAt            DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("user_settings")
+}
+
+model LifeWeek {
+  id         BigInt   @id @default(autoincrement())
+  userId     String   @map("user_id") @db.Uuid
+  weekNumber Int      @map("week_number")
+  age        Int?
+  lifePhase  String?  @map("life_phase")
+  journal    String?
+  mood       String?
+  goals      String?
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([userId, weekNumber], map: "life_weeks_user_id_week_number_key")
+  @@index([userId], map: "life_weeks_user_id_idx")
+  @@index([userId, weekNumber], map: "life_weeks_user_week_idx")
+  @@map("life_weeks")
+}
+
+model Milestone {
+  id          BigInt   @id @default(autoincrement())
+  userId      String   @map("user_id") @db.Uuid
+  title       String
+  description String?
+  date        DateTime? @db.Date
+  category    String?
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([userId], map: "milestones_user_id_idx")
+  @@map("milestones")
+}
