@@ -1,6 +1,10 @@
 # Tessera - Your Life in Dots
 
-Personal life calendar visualizing your 4,680 weeks with AI-powered journaling.
+Tessera is a personal life calendar application that visualizes an individual's 4,680 weeks (based on an 80-year lifespan) with integrated AI-powered journaling. 
+
+## Development Methodology: Vibe Coding
+
+This repository was engineered utilizing a **Vibe Coding** methodology—an AI-assisted, natural-language-driven development paradigm. By orchestrating advanced Large Language Models (LLMs) to handle boilerplate and implementation details in a flow state, development velocity was significantly increased, allowing engineering focus to remain purely on system architecture, data flow, and product design.
 
 ## Features
 

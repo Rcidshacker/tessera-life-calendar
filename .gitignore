@@ -51,3 +51,21 @@ server.log
 # Skills directory
 /skills/
 client_secret_*.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Secrets & Keys
+*.key
+secrets.json
+.npmrc
+
+# OS files
+Thumbs.db
