@@ -54,7 +54,7 @@ export interface UserSettings {
   birthdate: string;
   lifeExpectancy: number;
   name: string;
-  theme: 'dark' | 'light';
+  theme: 'dark' | 'light' | 'system';
   showWorldEvents: boolean;
   gridZoom: number;
 }
